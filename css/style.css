@@ -1,0 +1,531 @@
+*, *:before, *:after{
+  box-sizing: border-box;
+}
+a:active, a:focus, li:active, li:focus{outline: -webkit-focus-ring-color auto 0px;}
+/*установка шрифтов*/
+@font-face {
+  font-family: 'Inter';
+  src: url('../fonts/Inter-Regular.woff') format('woff');
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Nicka';
+  src: url('../fonts/nickainley-normal.woff') format('woff');
+  font-style: normal;
+}
+@font-face {
+  font-family: 'Nixa';
+  src: url('../fonts/nexa-script-semi-bold.woff') format('woff');
+  font-style: normal;
+}
+
+body {
+  position: relative;
+  height: 100%;
+}
+b{
+  font-weight: bolder;
+  color: #edbe71;
+}
+h1{
+  font-size: 56px;
+  font-family: 'Nixa';
+  margin-bottom: 4%;
+  margin-top: 3%;
+}
+p{
+  font-family: "Inter";
+  line-height: 160%;
+  margin-top: 1%;
+  margin-bottom: 1%;
+  cursor: default;
+}
+a{
+  color:#fff;
+  text-decoration: none;
+}
+a:hover{
+  color:#fba54c;
+}
+/*шапка сайта*/
+header{
+  background-color: #000;
+  width: 100%;
+  position: fixed;
+  z-index: 9999;
+}
+.header{
+  max-width: 1100px;
+  margin:0 auto;
+  padding: 10px 15px;
+}
+.header, .logo{
+  display: flex;
+  align-items:center;
+  justify-content: space-between;
+  font-display: 'Inter';
+}
+.logo{
+  padding: 10px 0px;
+}
+.logo a{
+  font-family: 'Nicka';
+  font-size: 38px;
+  color: #fff;
+  padding-left: 1%;
+  cursor: pointer;
+  text-decoration: none;
+}
+.logo a:hover{
+  color:#fba54c;
+}
+
+/*меню сайта*/
+.menu{
+  width:60%;
+  max-width: 273px;
+  position: absolute;
+  right: 0;
+  top: 70px;
+}
+.menu img{
+  display: block;
+}
+.menu .mainMenu{
+  margin-top: 8px;
+  justify-content: space-between;
+  position: absolute;
+  flex-direction: column;
+  background: #000;
+  padding:15px;
+  display: none;
+}
+.mainMenu li{
+  font-size: 22px;
+  color: #fff;
+  border-bottom: 1px solid #000;
+  padding-bottom: 1%;
+  position: relative;
+  margin-bottom: 15px;
+}
+.mainMenu li:hover{
+  border-bottom: 1px solid #000;
+  color:#fba54c;
+  cursor: pointer;
+}
+.mainMenu .current{
+  color:#fba54c;
+  cursor: pointer;}
+  
+.mainMenu li:first-child{
+  color:#fba54c;
+  border-bottom: 1px solid #fba54c;
+}
+.mainMenu li:hover{
+  border-bottom: 1px solid #fba54c;
+}
+.submenu li:first-child{
+  border-bottom: 1px solid #000;
+}
+.submenu {
+  position: relative;
+  top: 100%;
+  background: #000000ab;
+  visibility: visible;
+}
+
+nav > .mainMenu > li > .submenu{
+  transition-property: opacity, visibility;
+  -webkit-transition: all 0.5s ease, max-height 0.5s linear;
+  -moz-transition: all 0.5s ease, max-height 0.5s linear;
+  transition: all 0.5s ease, max-height 0.5s linear;
+}
+
+nav > .mainMenu > li:hover > .submenu {
+  max-height: 600px; 
+  opacity: 1;
+}
+nav > .mainMenu > li > .submenu {
+  max-height: 190px;
+  opacity: 1;
+  width: 270px;
+}
+.submenu li{
+  padding:15px;
+  border-bottom: 1px solid #000;
+}
+.submenu li:hover{
+  border-bottom: 1px solid #000;
+}
+.submenu li:hover:first-child{
+  border-bottom: 1px solid #000;
+}
+.menu-button{
+  display: block;
+}
+.mainMenu_desctop{
+  display: flex;
+  flex-direction: row;
+}
+#technics .mainMenu li:first-child, #impressionists .mainMenu li:first-child{
+  color:#fff;
+  border-bottom: 1px solid #fba54c;
+}
+#technics .submenu li:first-child, #impressionists .submenu li:first-child{
+  color:#fff;
+  border-bottom: 1px solid #000;
+}
+#technics .mainMenu li:nth-child(2){
+  color:#fba54c;
+  border-bottom: 1px solid #000;
+}
+#impressionists .mainMenu li:nth-child(3){
+  color:#fba54c;
+  border-bottom: 1px solid #000;
+}
+/*медиа-запросы для адаптирования под различные устройства меню*/
+@media screen and (min-width:880px){ /*width >= 880*/
+  .menu{
+    width:50%;
+    max-width:100%;
+    position: relative;
+    right: inherit;
+    top: inherit;
+  }
+  .menu .mainMenu{
+    flex-direction: row;
+    position: relative;
+    padding:0;
+    display: flex;
+  }
+  .mainMenu li{
+    margin-bottom: 0;
+  }
+  .menu img{
+    display: none;
+  }
+  .submenu {
+    position: absolute;
+    top:50px;
+  }
+  nav > .mainMenu > li > .submenu {
+    max-height: 30px;
+    opacity: 0; 
+    width: 290px;
+  }
+  .submenu li:hover{
+    border-bottom: 1px solid #fba54c;
+  }
+  .mainMenu li:hover{
+    border-bottom: 1px solid #fba54c;
+  }
+  .menu-button{
+    display: none;
+  }
+  .submenu li:hover:first-child{
+    border-bottom: 1px solid #fba54c;
+  }
+  #technics .mainMenu li:first-child, #impressionists .mainMenu li:first-child{
+    color:#fff;
+    border-bottom: 1px solid #000;
+  }
+  #technics .mainMenu li:nth-child(2){
+    color:#fba54c;
+    border-bottom: 1px solid #fba54c;
+  }
+  #technics .submenu li:nth-child(2){
+    color:#fba54c;
+    border-bottom: 1px solid #000;
+  }
+  #impressionists .mainMenu li:nth-child(3){
+    color:#fba54c;
+    border-bottom: 1px solid #fba54c;
+  }
+  #impressionists .submenu li:nth-child(3){
+    color:#fba54c;
+    border-bottom: 1px solid #000;
+  }
+}
+
+main{
+  margin-bottom: 1%;
+}
+
+/*главный экран сайта*/
+.main_screen{
+  color:#fff;
+  background: url("../img/background.jpg"); /*загрузка изображения*/
+  width:100%;
+  height:800px;
+}
+.container{
+  max-width: 1100px;
+  margin: 0 auto;
+  box-sizing: border-box;
+  padding:15px;
+}
+.main_decription{
+  display: flex;
+  justify-content: space-between;
+  cursor: default;
+  padding-top:200px;  
+  width: 100%;  
+  text-align: center;
+  flex-direction: column;
+}
+.main_descriptionText{
+  max-width: 100%;
+  margin-top: 0px;
+}
+.main_descriptionText button{
+  border-radius:30px;
+  border:none;
+  padding: 10px 40px;
+  margin-top:4%;
+  color: #fff;
+  background: #f39d45;
+  animation: radial-pulse 0.8s infinite;
+}
+@keyframes radial-pulse { /*анимация для кнопки*/
+  0% {box-shadow: 0 0 0 0px rgba(207, 149, 24, 0.664);}
+  100% {box-shadow: 0 0 0 10px rgba(180, 142, 15, 0);}
+}
+.main_descriptionImg {
+  display:none;
+  max-width: 44%;
+  margin-top: 96px;
+  margin-left: 15px;
+}
+.main_descriptionImg img{
+  width:450px;
+  border-radius:30px;
+}
+
+/*медиа-запросы для адаптирования под различные устройства главного экрана сайта*/
+
+@media screen and (min-width:880px){ /*width >= 880*/
+  .main_decription{
+    flex-direction: row;
+  }
+  .main_descriptionText{
+    max-width: 58%;
+    margin-top: -50px;
+  }
+  .main_descriptionImg {
+    display:block;
+    max-width: 44%;
+    margin-top: 96px;
+    margin:15px;
+  }
+}
+@media (min-width: 880px) and (max-width: 1024px) { /*width от 880 до 1024*/
+  .main_descriptionImg img{
+    width:390px;
+    margin-top:60px;
+  }
+}
+/*Cel Impresjonistów*/
+.destination h1{
+  color: #866039;
+  text-align: center;
+}
+.destination p{
+  text-align: justify;
+}
+.destination img{
+  width:100%;
+  max-width:1100px;
+}
+
+/*медиа-запросы для адаптирования под различные устройства Cel Impresjonistów*/
+@media screen and (min-width:880px){
+  .destination h1{
+    text-align: left;
+  }
+}
+
+/*Impresjonizm w sztuce, Impresjonizm w muzyce, Impresjonizm w literaturze*/
+.art h1, .music h1{
+  color: #866039;
+  text-align: center;
+}
+.art_description, .music_description{
+  display: flex;
+  justify-content: space-between;
+  flex-direction: column;
+}
+.music_description{
+  align-items:center;
+  width:100%;
+}
+.art_descriptionImg img{
+  width:100%;
+  max-width:650px;
+  border-radius:30px;
+  padding:5px;
+  cursor: pointer;
+}
+.art_descriptionImg{
+  order:2;
+  text-align: center;
+}
+.art_descriptionImg img:hover{
+  box-shadow: 2px 2px 16px 2px rgba(209, 116, 29, 0.25);
+}
+.art_descriptionText{
+  padding-left:15px;
+}
+.music_descriptionText{
+  width:100%;
+}
+.art_descriptionText p, .music_descriptionText p{
+  text-align: justify;
+}
+.art_descriptionList, .music_descriptionList, .literature_descriptionList{
+  font-family: "Inter";
+  line-height: 160%;
+  margin-top: 1%;
+  margin-bottom: 1%;
+}
+.art_descriptionList li, .music_descriptionList li, .literature_descriptionList li{
+  list-style-type: none;
+}
+.art_descriptionList li:before, .music_descriptionList li::before, .literature_descriptionList li::before{
+  content: '\27A4';
+  margin-right: 1%;
+  font-size: 12px;
+  color: #866039;
+}
+.music_descriptionImg{
+  width:100%;
+}
+.music_descriptionImg img{
+  border-radius:30px;
+  padding:15px;
+  width:100%;
+  text-align: center;
+  margin: 0 auto;
+  display: block;
+}
+.literature h1{
+  color: #866039;
+}
+.literature p{
+  text-align: justify;
+}
+.literature img{
+  width:100%;
+  max-width:1100px;
+  border-radius: 30px;
+}
+.video iframe{
+  width:100%;
+  height: 500px;
+}
+/*подвал сайта*/
+.footer-block{
+  background: #000;
+  padding:25px;
+  color:#fff;
+  font-family: "Inter";
+  text-align: center;
+  align-items:center;
+}
+.footer-block span{
+  vertical-align: middle;
+}
+
+/*медиа-запросы для адаптирования под различные устройства видов импрессионизма*/
+@media screen and (min-width:880px){
+  .art_description, .music_description {
+    flex-direction: row;
+  }
+  .art_descriptionImg{
+    order:0;
+  }
+  .music_descriptionText{
+    width:55%;
+  }
+  .music_descriptionImg{
+    width:45%;
+  }
+}
+
+/*Techniki impresjonistyczne, Główni Impresjoniści*/
+.technics, .impressionists{
+  text-align: justify;
+  padding-top: 80px;
+}
+.technics h1, .impressionists h1{
+  color: #866039;
+}
+.technics_descriptionList{
+  font-family: "Inter";
+  line-height: 160%;
+  margin-top: 1%;
+  margin-bottom: 1%;
+}
+.technics_descriptionList li{
+  list-style-type: none;
+}
+.technics_descriptionList li:before{
+  content: '\27A4';
+  margin-right: 1%;
+  font-size: 12px;
+  color: #866039;
+}
+.technics img{
+  width:100%;
+  max-width:1100px;
+}
+
+.impressionistsBlock{
+  display: flex;
+  flex-wrap: wrap;
+}
+#impressionists b{
+  color:#a57a33;
+}
+.impressionists_item{
+  display: flex;
+  width: 100%;
+  border:1px solid #e8e8e8;
+  box-shadow: 2px 2px 16px 2px rgba(206, 183, 162, 0.25);
+  padding:15px;
+  margin:10px;
+}
+.impressionists_item:hover{
+  box-shadow: 2px 2px 16px 2px rgba(209, 116, 29, 0.25);
+}
+.impressionists_itemImg{
+  width:35%;
+}
+.impressionists_itemDesc{
+  width:64%;
+  margin-left: 15px;
+}
+.impressionists_itemImg img{
+  width: 100%;
+  max-width: 200px;
+}
+/*медиа-запросы для адаптирования под различные устройства Główni Impresjoniści*/
+@media screen and (min-width: 992px) {
+  .impressionists_item {
+    display: block;
+    width: 31.33%;
+  }
+  .impressionists_itemImg{
+    width:100%;
+  }
+  .impressionists_itemImg img{
+    display:block;
+    margin: 0 auto;
+  }
+  .impressionists_itemDesc{
+    width:100%;
+    text-align: center;
+    margin-top: 10px;
+    margin-left: 0;
+  }
+
+}
